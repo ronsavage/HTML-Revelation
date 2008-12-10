@@ -1,0 +1,4 @@
+Revision history for Perl extension HTML::Revelation.
+
+1.00  Wed Dec 10 11:30:45 2008
+	- Original version
