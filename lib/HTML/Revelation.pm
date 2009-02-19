@@ -3,8 +3,8 @@ package HTML::Revelation;
 use strict;
 use warnings;
 
-our @accessors =      (qw/caption class2depth class_name comment css_output_file css_url html_output_file input_file/);
-use accessors::classic qw/caption class2depth class_name comment css_output_file css_url html_output_file input_file/;
+our @accessors =      (qw/caption class2depth class_name comment css_output_file css_url empty html_output_file input_file/);
+use accessors::classic qw/caption class2depth class_name comment css_output_file css_url empty html_output_file input_file/;
 
 use File::Spec;
 use HTML::Entities::Interpolate;
@@ -31,7 +31,7 @@ our @EXPORT = qw(
 
 );
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 # -----------------------------------------------
 
@@ -104,6 +104,16 @@ EOS
 	return $output;
 
 } # End of build_css_file.
+
+# -----------------------------------------------
+
+sub empty_tag
+{
+	my($self, $tag_name) = @_;
+
+	return ${$self -> empty()}{$tag_name} || 0;
+
+} # End of empty_tag.
 
 # -----------------------------------------------
 
@@ -663,6 +673,24 @@ sub new
 	$self -> comment('');
 	$self -> css_output_file('');
 	$self -> css_url('');
+	$self -> empty
+	({
+	 area => 1,
+	 base => 1,
+	 basefont => 1,
+	 br => 1,
+	 col => 1,
+	 embed => 1,
+	 frame => 1,
+	 hr => 1,
+	 img => 1,
+	 input => 1,
+	 isindex => 1,
+	 link => 1,
+	 meta => 1,
+	 param => 1,
+	 wbr => 1,
+	});
 	$self -> html_output_file('');
 	$self -> input_file('');
 
@@ -698,6 +726,25 @@ sub new
 		die 'Cannot find input file: ' . $self -> input_file();
 	}
 
+	$$self{'_empty'} =
+	{
+	 area => 1,
+	 base => 1,
+	 basefont => 1,
+	 br => 1,
+	 col => 1,
+	 embed => 1,
+	 frame => 1,
+	 hr => 1,
+	 img => 1,
+	 input => 1,
+	 isindex => 1,
+	 link => 1,
+	 meta => 1,
+	 param => 1,
+	 wbr => 1,
+	};
+
 	return $self;
 
 } # End of new.
@@ -714,7 +761,8 @@ sub process
 
 	if (ref $node)
 	{
-		my($tag) = lc $node -> tag();
+		my($tag)       = lc $node -> tag();
+		my($empty_tag) = $self -> empty_tag($tag);
 
 		my($content);
 
@@ -740,6 +788,11 @@ sub process
 
 			my($s) = $self -> format_attributes($node);
 
+			if ($empty_tag)
+			{
+				$s .= ' /';
+			}
+
 			push @$output, qq|<div class = "$class_name">$Entitize{"<$tag$s>"}|;
 
 			# Process this node's children.
@@ -749,13 +802,20 @@ sub process
 				$self -> process($css_url, $depth, $content, $output);
 			}
 
-			push @$output, qq|$Entitize{"</$tag>"}</div>|;
+			$s = '</div>';
+
+			if (! $empty_tag)
+			{
+				$s = qq|$Entitize{"</$tag>"}$s|;
+			}
+
+			push @$output, $s;
 		}
 		else
 		{
-			# It's the head tag, so just output it.
+			# It's the head-type tag, so just output it. This includes the real body tag.
 
-			push @$output, "<$tag>";
+			push @$output, "<$tag" . ($empty_tag ? ' /' : '') . '>';
 
 			# Add commentry, if desired, just after we output the real body tag.
 
@@ -766,7 +826,7 @@ sub process
 					$self -> add_caption($output);
 				}
 
-				# Output a fake body tag.
+				# Output a fake (i.e. visible) body tag.
 
 				my($s) = $self -> format_attributes($node);
 
@@ -784,10 +844,13 @@ sub process
 
 			if ($tag eq 'head')
 			{
-				push @$output, qq|<link rel = "stylesheet" type = "text/css" href = "$css_url">|;
+				push @$output, qq|<link rel = "stylesheet" type = "text/css" href = "$css_url" />|;
 			}
 
-			push @$output, "</$tag>";
+			if (! $empty_tag)
+			{
+				push @$output, "</$tag>";
+			}
 		}
 	}
 #	else
