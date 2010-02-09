@@ -1,0 +1,11 @@
+Build.PL
+Changelog.ini
+CHANGES
+lib/HTML/Revelation.pm
+Makefile.PL
+MANIFEST			This list of files
+README
+scripts/extract.colors.pl
+scripts/reveal.pl
+t/pod.t
+t/test.t
