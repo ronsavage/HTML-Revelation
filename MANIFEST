@@ -9,3 +9,4 @@ scripts/extract.colors.pl
 scripts/reveal.pl
 t/pod.t
 t/test.t
+META.yml
