@@ -1074,7 +1074,7 @@ Home page: http://savage.net.au/index.html
 
 =head1 Copyright
 
-	Copyright (c) 2008,  Ron Savage. All rights reserved.
+	Australian copyright (c) 2008,  Ron Savage. All rights reserved.
 
 	All Programs of mine are 'OSI Certified Open Source Software';
 	you can redistribute them and/or modify them under the terms of
