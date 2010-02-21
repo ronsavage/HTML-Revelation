@@ -1062,10 +1062,6 @@ Patch line 743 to put ' $class_name' just inside the '|' at the end of the line.
 
 =back
 
-=head1 Changes
-
-See Changes and Changelog.ini. The latter is machine-readable, using Module::Metadata::Changes.
-
 =head1 Author
 
 C<HTML::Revelation> was written by Ron Savage I<E<lt>ron@savage.net.auE<gt>> in 2008.
@@ -1074,8 +1070,7 @@ Home page: http://savage.net.au/index.html
 
 =head1 Copyright
 
-	Australian copyright (c) 2008,  Ron Savage. All rights reserved.
-
+	Australian copyright (c) 2008,  Ron Savage.
 	All Programs of mine are 'OSI Certified Open Source Software';
 	you can redistribute them and/or modify them under the terms of
 	the Artistic or the GPL licences, copies of which is available at:

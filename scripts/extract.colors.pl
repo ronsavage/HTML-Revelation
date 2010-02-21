@@ -5,7 +5,7 @@ use HTML::TreeBuilder;
 # --------------------
 
 my($root)      = HTML::TreeBuilder -> new();
-my($file_name) = '/home/ron/httpd/prefork/htdocs/misc/color.html';
+my($file_name) = '/var/www/misc/color.html';
 my($result)    = $root -> parse_file($file_name) || die "Can't parse: $file_name";
 my(@node)      = $root -> look_down(_tag => 'table');
 my(@td)        = $node[2] -> look_down(_tag => 'td');
