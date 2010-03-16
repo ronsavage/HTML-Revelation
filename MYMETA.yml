@@ -17,7 +17,7 @@ name: HTML-Revelation
 provides:
   HTML::Revelation:
     file: lib/HTML/Revelation.pm
-    version: 1.01
+    version: 1.03
 requires:
   File::Spec: 0
   HTML::Entities::Interpolate: 0
@@ -27,4 +27,4 @@ requires:
   accessors::classic: 0
 resources:
   license: http://opensource.org/licenses/artistic-license.php
-version: 1.01
+version: 1.03
