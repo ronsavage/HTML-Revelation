@@ -31,7 +31,7 @@ our @EXPORT = qw(
 
 );
 
-our $VERSION = '1.03';
+our $VERSION = '1.04';
 
 # -----------------------------------------------
 
@@ -911,7 +911,7 @@ HTML::Revelation - Reveal HTML document structure in a myriad of colors
 
 =head1 Synopsis
 
-	#!/usr/bin/perl
+	#!/usr/bin/env perl
 
 	use strict;
 	use warnings;
