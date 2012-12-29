@@ -3,7 +3,7 @@ use Module::Build;
 Module::Build -> new
 (
  module_name    => 'HTML::Revelation',
- license        => 'artistic',
+ license        => 'perl_5',
  dist_abstract  => 'Reveal HTML document structure in a myriad of colors',
  dist_author    => 'Ron Savage <ron@savage.net.au>',
  build_requires =>

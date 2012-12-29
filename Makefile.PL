@@ -21,6 +21,7 @@ WriteMakefile
  },
  DISTNAME  => 'HTML-Revelation',
  NAME      => 'HTML::Revelation',
+	LICENSE   => 'perl_5',
  PL_FILES  => {},
  PREREQ_PM =>
  {
