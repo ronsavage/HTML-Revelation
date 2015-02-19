@@ -10,5 +10,5 @@ META.yml
 README
 scripts/extract.colors.pl
 scripts/reveal.pl
-t/pod.t
 t/test.t
+xt/author/pod.t
