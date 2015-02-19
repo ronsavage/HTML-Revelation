@@ -922,12 +922,12 @@ HTML::Revelation - Reveal HTML document structure in a myriad of colors
 
 	my($reveal) = HTML::Revelation -> new
 	(
-	 caption          => 1,
-	 comment          => "DBIx::Admin::CreateTable's POD converted to HTML with my pod2html.pl",
-	 css_output_file  => 'CreateTable.css',
-	 css_url          => '/',
-	 html_output_file => 'CreateTable.html',
-	 input_file       => 'misc/CreateTable.html',
+		caption          => 1,
+		comment          => "DBIx::Admin::CreateTable's POD converted to HTML with my pod2html.pl",
+		css_output_file  => 'CreateTable.css',
+		css_url          => '/',
+		html_output_file => 'CreateTable.html',
+		input_file       => 'misc/CreateTable.html',
 	);
 
 	$reveal -> run();
