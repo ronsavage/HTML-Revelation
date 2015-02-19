@@ -2,6 +2,7 @@ Build.PL
 Changelog.ini
 Changes
 lib/HTML/Revelation.pm
+LICENSE
 Makefile.PL
 MANIFEST			This list of files
 META.json
