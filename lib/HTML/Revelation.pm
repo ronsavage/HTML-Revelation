@@ -1044,23 +1044,23 @@ Patch line 743 to put ' $class_name' just inside the '|' at the end of the line.
 
 =back
 
-=head1 Modules Used
+=head1 Machine-Readable Change Log
 
-=over 4
+The file CHANGES was converted into Changelog.ini by L<Module::Metadata::Changes>.
 
-=item accessors::classic
+=head1 Version Numbers
 
-=item File::Spec
+Version numbers < 1.00 represent development versions. From 1.00 up, they are production versions.
 
-=item HTML::Entities::Interpolate
+=head1 Repository
 
-=item HTML::Tagset
+L<https://github.com/ronsavage/HTML-Revelation>
 
-=item HTML::TreeBuilder
+=head1 Support
 
-=item List::Cycle
+Email the author, or log a bug on RT:
 
-=back
+L<https://rt.cpan.org/Public/Dist/Display.html?Name=HTML::Revelation>.
 
 =head1 Author
 
